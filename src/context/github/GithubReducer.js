@@ -5,6 +5,7 @@ const githubReducer = (state, action) => {
         ...state,
         users: action.payload,
         loading: false,
+        mounted: true,
       };
     case 'SET_LOADING':
       return {
