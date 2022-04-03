@@ -14,7 +14,7 @@ export const GithubProvider = ({ children }) => {
   };
   const [state, dispatch] = useReducer(githubReducer, initialState);
 
-  //for testing purposes
+  //for testing purposes - getting just random users
   const fetchUsers = async () => {
     setLoading();
     const response = await fetch(`https://api.github.com/users`);
