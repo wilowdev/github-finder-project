@@ -11,7 +11,6 @@ export const GithubProvider = ({ children }) => {
     users: [],
     user: {},
     loading: false,
-    mounted: false,
   };
   const [state, dispatch] = useReducer(githubReducer, initialState);
 
@@ -73,11 +72,6 @@ export const GithubProvider = ({ children }) => {
       type: 'SET_LOADING',
     });
   };
-  const clearMount = () => {
-    dispatch({
-      type: 'CLEAR_MOUNT',
-    });
-  };
 
   return (
     <GithubContext.Provider
@@ -85,11 +79,9 @@ export const GithubProvider = ({ children }) => {
         users: state.users,
         user: state.user,
         loading: state.loading,
-        mounted: state.mounted,
         searchUsers,
         clearUsers,
         getUser,
-        clearMount,
       }}
     >
       {children}

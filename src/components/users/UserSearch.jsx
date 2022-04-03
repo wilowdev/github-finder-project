@@ -5,7 +5,7 @@ import AlertContext from '../../context/alert/AlertContext';
 function UserSearch() {
   const [text, setText] = useState('');
 
-  const { searchUsers, mounted, clearUsers } = useContext(GithubContext);
+  const { searchUsers, users, clearUsers } = useContext(GithubContext);
   const { setAlert } = useContext(AlertContext);
 
   const handleChange = (e) => setText(e.target.value);
@@ -41,7 +41,7 @@ function UserSearch() {
           </div>
         </form>
       </div>
-      {mounted && (
+      {users.length > 0 && (
         <div>
           <button className='btn btn-ghost btn-lg' onClick={clearUsers}>
             Clear
