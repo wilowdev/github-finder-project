@@ -12,10 +12,15 @@ const githubReducer = (state, action) => {
         // ...state,
         users: [],
         mounted: false,
+        user: {},
       };
     case 'SET_LOADING':
       return {
         loading: true,
+      };
+    case 'CLEAR_MOUNT':
+      return {
+        mounted: false,
       };
     case 'GET_USER':
       return {

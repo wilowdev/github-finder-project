@@ -4,9 +4,10 @@ import GithubContext from '../context/github/GithubContext';
 import Spinner from '../components/layouts/Spinner';
 
 function User() {
-  const { getUser, user, mounted } = useContext(GithubContext);
+  const { getUser, user, mounted, clearMount } = useContext(GithubContext);
   const params = useParams();
   useEffect(() => {
+    clearMount();
     getUser(params.login);
   }, []);
 

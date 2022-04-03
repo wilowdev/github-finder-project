@@ -73,6 +73,11 @@ export const GithubProvider = ({ children }) => {
       type: 'SET_LOADING',
     });
   };
+  const clearMount = () => {
+    dispatch({
+      type: 'CLEAR_MOUNT',
+    });
+  };
 
   return (
     <GithubContext.Provider
@@ -84,6 +89,7 @@ export const GithubProvider = ({ children }) => {
         searchUsers,
         clearUsers,
         getUser,
+        clearMount,
       }}
     >
       {children}
