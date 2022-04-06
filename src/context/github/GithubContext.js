@@ -28,21 +28,21 @@ export const GithubProvider = ({ children }) => {
     });
   };
 
-  //search for users
-  const searchUsers = async (text) => {
-    setLoading();
+  //search for users <- moved to githubActions and dispatched from component
+  // const searchUsers = async (text) => {
+  //   setLoading();
 
-    const params = new URLSearchParams({
-      q: text,
-    });
-    const response = await fetch(`${GITHUB_URL}/search/users?${params}`);
-    const data = await response.json();
+  //   const params = new URLSearchParams({
+  //     q: text,
+  //   });
+  //   const response = await fetch(`${GITHUB_URL}/search/users?${params}`);
+  //   const data = await response.json();
 
-    dispatch({
-      type: 'GET_USERS',
-      payload: data.items,
-    });
-  };
+  //   dispatch({
+  //     type: 'GET_USERS',
+  //     payload: data.items,
+  //   });
+  // };
 
   //get sigle user
   const getUser = async (login) => {
@@ -97,11 +97,13 @@ export const GithubProvider = ({ children }) => {
   return (
     <GithubContext.Provider
       value={{
-        users: state.users,
-        user: state.user,
-        loading: state.loading,
-        repos: state.repos,
-        searchUsers,
+        // users: state.users,
+        // user: state.user,
+        // loading: state.loading,
+        // repos: state.repos,
+        ...state,
+        dispatch,
+        // searchUsers,
         clearUsers,
         getUser,
         getUserRepos,
